@@ -1,0 +1,18 @@
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.exe
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.deps.json
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.runtimeconfig.json
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.runtimeconfig.dev.json
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.dll
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Bowling Score API.pdb
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.csprojAssemblyReference.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.AssemblyInfoInputs.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.AssemblyInfo.cs
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.csproj.CoreCompileInputs.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.RazorTargetAssemblyInfo.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\staticwebassets\Bowling Score API.StaticWebAssets.Manifest.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\staticwebassets\Bowling Score API.StaticWebAssets.xml
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.dll
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.pdb
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\obj\Debug\netcoreapp3.1\Bowling Score API.genruntimeconfig.cache
+C:\Users\sarah\workspace\BowlingScores\Bowling Score API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
