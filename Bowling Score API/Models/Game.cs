@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 
 namespace Bowling_Score_API.Models
@@ -32,6 +33,29 @@ namespace Bowling_Score_API.Models
                 var extraFrame = new Frame();
                 Frames.Add(extraFrame);
             }                
+
+        }
+
+        public int Score()
+        {
+            var score = 0;
+            for (var i = 0; i < Frames.Count; i++)
+                if (Frames[i].total == 10)
+                {
+                    score += Frames[i].total + Frames[i + 1].total;
+                } 
+            else if (Frames[i].FirstRoll == 10)
+                {
+                    score += Frames[i].FirstRoll + Frames[i + 1].total + Frames[i + 2].total;
+                }
+            else
+                {
+                    score += Frames[i].total;
+                }
+            Console.WriteLine(score);
+
+            return score;
+
 
         }
 

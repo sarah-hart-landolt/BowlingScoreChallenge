@@ -17,10 +17,14 @@ namespace Bowling_Score_API
 
             var game = new Game();
             game.PlayGame();
+            game.Score();
 
             foreach(var frameesque in game.Frames)
             {
-                Console.WriteLine(frameesque.FirstRoll+ frameesque.SecondRoll);
+                Console.WriteLine($"Second roll = {frameesque.SecondRoll}");
+                Console.WriteLine($"Total = {frameesque.total}");
+
+
 
             }
 

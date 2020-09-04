@@ -41,9 +41,14 @@ namespace Bowling_Score_API.Models
                 };
                 return _second.Value;
             }
+        }
 
 
-
+    public int total {
+            get
+            {
+               return FirstRoll +  SecondRoll;
+            }
         }
     }
 }
