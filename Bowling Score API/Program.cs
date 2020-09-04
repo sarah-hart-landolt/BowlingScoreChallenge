@@ -16,17 +16,15 @@ namespace Bowling_Score_API
         {
 
             var game = new Game();
+            game.addPlayer(new Player() { Id = 1, DisplayName = "Sarah" });
+            game.addPlayer(new Player() { Id = 2, DisplayName = "Kristen" });
+            game.addPlayer(new Player() { Id = 3, DisplayName = "Parker" });
+            game.addPlayer(new Player() { Id = 4, DisplayName = "Jon" });
+            game.addPlayer(new Player() { Id = 5, DisplayName = "Derek" });
+            game.addPlayer(new Player() { Id = 6, DisplayName = "Crystal" });
+
             game.PlayGame();
-            game.Score();
-
-            foreach(var frameesque in game.Frames)
-            {
-                Console.WriteLine($"Second roll = {frameesque.SecondRoll}");
-                Console.WriteLine($"Total = {frameesque.total}");
-
-
-
-            }
+        
 
 
 

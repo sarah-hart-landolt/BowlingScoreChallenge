@@ -20,7 +20,7 @@ namespace Bowling_Score_API.Models
             {
                 if (_first == null)
                 {
-                    _first = rnd.Next(0, 10);
+                    _first = rnd.Next(0, 11);
                 };
                 return _first.Value;
             }
