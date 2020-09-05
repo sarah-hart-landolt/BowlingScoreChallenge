@@ -48,38 +48,55 @@ namespace Bowling_Score_API.Models
             foreach (var player in Players)
             {
                 var Frames = player.Frames;
-               
+
                 var score = 0;
                 for (var i = 0; i < 10; i++)
 
-                    if (i != 9 && Frames[i].total == 10)
-                    {
-                        score += Frames[i].total + Frames[i + 1].total;
+                    if (Frames[i].total == 10)
+                    {   
+                        if (i != 9)
+                        {
+                            score += Frames[i].total + Frames[i + 1].total;
+
+                        }
+                        else
+                        {
+                          score += Frames[i].total + Frames[i + 1].FirstRoll;
+
+                        }
                     }
-                    else if (i != 9 && Frames[i].FirstRoll == 10)
+                    else if (Frames[i].FirstRoll == 10)
                     {
-                        score += Frames[i].FirstRoll + Frames[i + 1].total + Frames[i + 2].total;
+                        if(i != 9)
+                        {
+                          score += Frames[i].FirstRoll + Frames[i + 1].total + Frames[i + 2].total;
+                        }
+                        else
+                        {
+                            score += Frames[i].FirstRoll + Frames[i + 1].total;
+
+                        }
                     }
                     else
                     {
                         score += Frames[i].total;
                     }
-                if (Frames.Count == 11)
-                {
-                    if (Frames[9].FirstRoll == 10)
-                    {
-                        score += Frames[10].total;
-                        Console.WriteLine("I had an extra frame bc of strike");
+                //if (Frames.Count == 11)
+                //{
+                //    if (Frames[9].FirstRoll == 10)
+                //    {
+                //        score += Frames[10].total;
+                //        Console.WriteLine("I had an extra frame bc of strike");
 
-                    }
-                    else if (Frames[9].total == 10)
-                    {
-                        score += Frames[10].FirstRoll;
-                        Console.WriteLine("I had an extra frame bc of spare");
+                //    }
+                //    else if (Frames[9].total == 10)
+                //    {
+                //        score += Frames[10].FirstRoll;
+                //        Console.WriteLine("I had an extra frame bc of spare");
 
 
-                    }
-                }
+                //    }
+                //}
 
                 Console.WriteLine(score);
 
@@ -95,9 +112,9 @@ namespace Bowling_Score_API.Models
 }
 
 
-        
-
-                    
 
 
-   
+
+
+
+
