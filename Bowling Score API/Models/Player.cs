@@ -10,6 +10,10 @@ namespace Bowling_Score_API.Models
     {
         public int Id { get; set; }
 
-        public string DisplayName { get; set; } 
+        public string DisplayName { get; set; }
+
+        public List<Frame> Frames { get; set; } = new List<Frame>();
+
+
     }
 }

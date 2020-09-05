@@ -24,6 +24,7 @@ namespace Bowling_Score_API
             game.addPlayer(new Player() { Id = 6, DisplayName = "Crystal" });
 
             game.PlayGame();
+            game.Score();
         
 
 
