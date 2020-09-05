@@ -44,22 +44,19 @@ namespace Bowling_Score_API.Models
 
         public void Score()
         {
+
             foreach (var player in Players)
             {
                 var Frames = player.Frames;
-                if (Frames[9].FirstRoll == 10 || Frames[9].total == 10)
-                {
-                    var extraFrame = new Frame();
-                    Frames.Add(extraFrame);
-                }
+               
                 var score = 0;
                 for (var i = 0; i < 10; i++)
 
-                    if (Frames[i].total == 10)
+                    if (i != 9 && Frames[i].total == 10)
                     {
                         score += Frames[i].total + Frames[i + 1].total;
                     }
-                    else if (Frames[i].FirstRoll == 10)
+                    else if (i != 9 && Frames[i].FirstRoll == 10)
                     {
                         score += Frames[i].FirstRoll + Frames[i + 1].total + Frames[i + 2].total;
                     }
