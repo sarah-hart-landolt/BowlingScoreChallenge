@@ -25,7 +25,7 @@ namespace Bowling_Score_API.Models
 
 
         }
-        public void Score()
+        public void BowlingCardScore()
         {
 
             var score = 0;

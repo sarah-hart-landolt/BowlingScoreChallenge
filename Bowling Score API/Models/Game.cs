@@ -25,6 +25,17 @@ namespace Bowling_Score_API.Models
             }
         }
 
+        public void GameScore()
+        {
+            foreach (var player in Players)
+            {
+                player.PlayGame();
+                player.BowlingCardScore();
+
+            }
+
+        }
+
     }
 }
 
