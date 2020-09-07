@@ -25,7 +25,13 @@ namespace Bowling_Score_API
 
             game.PlayGame();
             game.Score();
-        
+
+            foreach (var frame in game.Players[0].Frames)
+            {
+                Console.WriteLine($"{frame.FirstRoll} // {frame.SecondRoll} //{frame.ThirdRoll}");
+
+            }
+
 
 
 

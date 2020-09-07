@@ -28,7 +28,6 @@ namespace Bowling_Score_API.Models
 
         public void PlayGame()
         {
-
             foreach (var player in Players)
             {
 
@@ -50,62 +49,48 @@ namespace Bowling_Score_API.Models
                 var Frames = player.Frames;
 
                 var score = 0;
-                for (var i = 0; i < 10; i++)
+                for (var i = 0; i < 10
+                    ; i++)
 
-                    if (Frames[i].total == 10)
-                    {   
-                        if (i != 9)
+                    if (Frames[i].FirstRoll != 10 && Frames[i].total == 10) // if it's a spare
+                    {
+                        if (i != 9) // and it's  not the 10th frame 
                         {
-                            score += Frames[i].total + Frames[i + 1].total;
+                            score += Frames[i].total + Frames[i + 1].FirstRoll;
 
                         }
-                        else
+                        else // if it's the last frame 
                         {
-                          score += Frames[i].total + Frames[i + 1].FirstRoll;
+                            score += Frames[i].total + Frames[i].ThirdRoll;
+                            Console.WriteLine("I got an extra roll bc of a 10th frame spare");
+
 
                         }
                     }
-                    else if (Frames[i].FirstRoll == 10)
+                    else if (Frames[i].FirstRoll == 10) // if it's a strike
                     {
-                        if(i != 9)
+                        if (i != 9) // and it's not the 10th frame
                         {
-                          score += Frames[i].FirstRoll + Frames[i + 1].total + Frames[i + 2].total;
+                            score += Frames[i].FirstRoll + Frames[i + 1].total; // score equals 10 plus the next frame's total
                         }
-                        else
+                        else  // if it's the 10th frame 
                         {
-                            score += Frames[i].FirstRoll + Frames[i + 1].total;
+                            score += Frames[i].total + Frames[i].ThirdRoll; // if there's a strike in the 10th frame, 2 extra rolls are added and total score are the three rolls
+                            Console.WriteLine("I had an extra 2 rolls bc of a 10th frame strike");
 
                         }
                     }
                     else
                     {
-                        score += Frames[i].total;
+                        score += Frames[i].total; // otherwise the score is the score + the sum of the current frame
                     }
-                //if (Frames.Count == 11)
-                //{
-                //    if (Frames[9].FirstRoll == 10)
-                //    {
-                //        score += Frames[10].total;
-                //        Console.WriteLine("I had an extra frame bc of strike");
-
-                //    }
-                //    else if (Frames[9].total == 10)
-                //    {
-                //        score += Frames[10].FirstRoll;
-                //        Console.WriteLine("I had an extra frame bc of spare");
 
 
-                //    }
-                //}
-
-                Console.WriteLine(score);
-
-                Console.WriteLine($"Good job {player.DisplayName}");
+                Console.WriteLine($"Good game {player.DisplayName}. Your score is {score}");
 
             }
 
         }
-
 
 
     }
