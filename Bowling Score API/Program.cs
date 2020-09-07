@@ -23,18 +23,12 @@ namespace Bowling_Score_API
             game.addPlayer(new Player() { Id = 5, DisplayName = "Derek" });
             game.addPlayer(new Player() { Id = 6, DisplayName = "Crystal" });
 
-            game.PlayGame();
-            game.Score();
-
-            foreach (var frame in game.Players[0].Frames)
-            {
-                Console.WriteLine($"{frame.FirstRoll} // {frame.SecondRoll} //{frame.ThirdRoll}");
+            //game.PlayGame();
+            foreach (var player in game.Players) {
+                player.PlayGame();
+                player.Score();
 
             }
-
-
-
-
 
 
         }

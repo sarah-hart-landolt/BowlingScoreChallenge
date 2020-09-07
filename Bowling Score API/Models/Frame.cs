@@ -13,25 +13,12 @@ namespace Bowling_Score_API.Models
 
         private static readonly Random rnd = new Random();
 
-        //private int? _first;
-        //private int? _second;
         private static int m_Counter = 0;
 
         public int Id { get; set; }
         public int FirstRoll { get; set; }
-        //{
-        //    get
-        //    {
-        //        if (_first == null)
-        //        {
-        //            _first = rnd.Next(0, 11);
-        //        };
-        //        return _first.Value;
-        //    }
-        //}
 
-
-        public  int SecondRoll { get; set; }
+        public int SecondRoll { get; set; }
 
         public int ThirdRoll { get; set; }
 
