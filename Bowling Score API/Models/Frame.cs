@@ -30,6 +30,33 @@ namespace Bowling_Score_API.Models
             }
         }
 
+
+        public bool IsAStrike()
+        {
+            if (FirstRoll == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false; 
+            }
+
+        }
+
+        public bool IsASpare()
+        {
+            if (FirstRoll != 10 && total == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         public Frame()
         {
             Id = System.Threading.Interlocked.Increment(ref m_Counter);
@@ -37,7 +64,7 @@ namespace Bowling_Score_API.Models
             FirstRoll = rnd.Next(0, 11); // First Roll is Random number between 0 and 11
             if (Id % 10 != 0 ) // if the Frame Id is not a multiple of 10 (last frame in game)
             {
-                if (FirstRoll == 10) // and if that first roll is a strike
+                if (IsAStrike()) // and if that first roll is a strike
                 {
                     SecondRoll = 0; // make second roll a zero, since it can't be nullable
 
@@ -49,7 +76,7 @@ namespace Bowling_Score_API.Models
                 }
             } else // if Id == mulitple of 10 (meaning last frame)
             {
-                if (FirstRoll == 10) // if first roll in last frame is a strike 
+                if (IsAStrike()) // if first roll in last frame is a strike 
                 {
                     SecondRoll = rnd.Next(0, 11); // player gets two more rolls; make the second roll a random number
                         if(SecondRoll == 10) // if that extra roll is also a stike 
@@ -64,7 +91,7 @@ namespace Bowling_Score_API.Models
                 else // if Id == 10 & the first roll isn't a strike 
                 {
                     SecondRoll = rnd.Next(0, 11 - FirstRoll); // Second Roll is random 
-                    if (FirstRoll + SecondRoll == 10) // if firstroll isn't a strike and the 10th frame total is a Spare
+                    if (IsASpare()) // if firstroll isn't a strike and the 10th frame total is a Spare
                     {
                         ThirdRoll = rnd.Next(0, 11); // player gets a third roll 
                     }

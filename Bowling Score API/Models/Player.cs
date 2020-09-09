@@ -12,7 +12,7 @@ namespace Bowling_Score_API.Models
 
         private List<Frame> Frames { get; set; } = new List<Frame>();
 
-        public void PlayGame()
+        public void PlayerRoll()
         {
 
 
@@ -25,6 +25,8 @@ namespace Bowling_Score_API.Models
 
 
         }
+
+      
         public void BowlingCardScore()
         {
 
@@ -33,7 +35,7 @@ namespace Bowling_Score_API.Models
             for (var i = 0; i < 10
                 ; i++)
 
-                if (Frames[i].FirstRoll != 10 && Frames[i].total == 10) // if it's a spare
+                if (Frames[i].IsASpare()) // if it's a spare
                 {
                     if (i != 9) // and it's  not the 10th frame 
                     {
@@ -48,7 +50,7 @@ namespace Bowling_Score_API.Models
 
                     }
                 }
-                else if (Frames[i].FirstRoll == 10) // if it's a strike
+                else if (Frames[i].IsAStrike()) // if it's a strike
                 {
                     if (i != 9) // and it's not the 10th frame
                     {
