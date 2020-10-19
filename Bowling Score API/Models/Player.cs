@@ -26,7 +26,6 @@ namespace Bowling_Score_API.Models
 
         }
 
-      
         public void BowlingCardScore()
         {
 

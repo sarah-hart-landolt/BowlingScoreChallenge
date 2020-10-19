@@ -1,32 +1,17 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 
 namespace Bowling_Score_API.Models
 {
-    public class Frame
+    public class FrameFactory
     {
         public int Id { get; set; }
 
+        private static readonly Random rnd = new Random();
+
         private static int m_Counter = 0;
-        public int FirstRoll { get; set; }
-
-        public int SecondRoll { get; set; }
-
-        public int ThirdRoll { get; set; }
-
-        public int total
-        {
-            get
-            {
-                return FirstRoll + SecondRoll;
-            }
-        }
-
 
         public bool IsAStrike()
         {
@@ -36,7 +21,7 @@ namespace Bowling_Score_API.Models
             }
             else
             {
-                return false; 
+                return false;
             }
 
         }
@@ -53,9 +38,7 @@ namespace Bowling_Score_API.Models
             }
 
         }
-
-        public Frame()
-        {
+        public FrameFactory(int FirstRoll, int SecondRoll, int ThirdRoll) {
             Id = System.Threading.Interlocked.Increment(ref m_Counter);
 
             FirstRoll = rnd.Next(0, 11); // First Roll is Random numsber between 0 and 11
@@ -77,7 +60,7 @@ namespace Bowling_Score_API.Models
                 if (IsAStrike()) // if first roll in last frame is a strike 
                 {
                     SecondRoll = rnd.Next(0, 11); // player gets two more rolls; make the second roll a random number
-                    if (SecondRoll == 10) // if that extra roll is also a strike 
+                    if (SecondRoll == 10) // if that extra roll is also a stike 
                     {
                         ThirdRoll = rnd.Next(0, 11); // player gets a third roll with range between 0 - 11
 
@@ -97,6 +80,11 @@ namespace Bowling_Score_API.Models
 
                 }
             }
-        }
+
+
+        
+    }
+            
+
     }
 }
