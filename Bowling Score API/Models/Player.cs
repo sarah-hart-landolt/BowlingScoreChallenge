@@ -12,20 +12,17 @@ namespace Bowling_Score_API.Models
 
         private List<Frame> Frames { get; set; } = new List<Frame>();
 
-        public void PlayerRoll()
+        public void PlayerRoll(Frame frame)
         {
-
-
-            for (int i = 0; i < 10; i++)
-            {
-                var frame = new Frame();
-
-                Frames.Add(frame);
-            }
-
+            Frames.Add(frame);
 
         }
-
+        // outer factories will be building up your games with randmoness (game factory-- in the game factory is the randomness ) 
+        // method injection passing in a frame when you do it.
+        
+        /// <summary>
+        /// add possibilty of 3rd roll in last frame here 
+        /// </summary>
         public void BowlingCardScore()
         {
 

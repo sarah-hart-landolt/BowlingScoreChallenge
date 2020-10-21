@@ -13,6 +13,8 @@ namespace Bowling_Score_API.Models
         public int Id { get; set; }
 
         private static int m_Counter = 0;
+        private static readonly Random rnd = new Random();
+
         public int FirstRoll { get; set; }
 
         public int SecondRoll { get; set; }
@@ -54,42 +56,53 @@ namespace Bowling_Score_API.Models
 
         }
 
-        public Frame()
+        public bool HasAThirdRoll()
+        {
+            if (IsLastFrame() && IsASpare() || IsAStrike())
+                return true;
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IsLastFrame()
+        {
+            if (Id % 10 == 0)
+            {
+                return true;
+            } else
+            {
+                return false; 
+            }
+        }
+
+        public Frame(int firstRoll, int secondRoll)
         {
             Id = System.Threading.Interlocked.Increment(ref m_Counter);
 
-            FirstRoll = rnd.Next(0, 11); // First Roll is Random numsber between 0 and 11
-            if (Id % 10 != 0) // if the Frame Id is not a multiple of 10 (last frame in game)
+            FirstRoll = firstRoll;
+            if (!IsLastFrame()) // if the Frame Id is not a multiple of 10 (last frame in game)
             {
                 if (IsAStrike()) // and if that first roll is a strike
                 {
                     SecondRoll = 0; // make second roll a zero, since it can't be nullable
 
-                }
-                else // otherwise make second roll random range be based on how many pins were knocked down in first roll
+                } else
                 {
-                    SecondRoll = rnd.Next(0, 11 - FirstRoll);
-
+                    SecondRoll = secondRoll;
                 }
             }
             else // if Id == mulitple of 10 (meaning last frame)
             {
                 if (IsAStrike()) // if first roll in last frame is a strike 
-                {
-                    SecondRoll = rnd.Next(0, 11); // player gets two more rolls; make the second roll a random number
-                    if (SecondRoll == 10) // if that extra roll is also a strike 
                     {
-                        ThirdRoll = rnd.Next(0, 11); // player gets a third roll with range between 0 - 11
-
-                    }
-                    else
-                    {
-                        ThirdRoll = rnd.Next(0, 11 - SecondRoll); // otherwise that third roll is based on how many pins are knocked down in Second Roll
-                    }
+                    SecondRoll = secondRoll;
+                    ThirdRoll = thirdRoll;
                 }
                 else // if Id == 10 & the first roll isn't a strike 
                 {
-                    SecondRoll = rnd.Next(0, 11 - FirstRoll); // Second Roll is random 
+                    SecondRoll = secondRoll; // Second Roll is random 
                     if (IsASpare()) // if firstroll isn't a strike and the 10th frame total is a Spare
                     {
                         ThirdRoll = rnd.Next(0, 11); // player gets a third roll 
@@ -97,6 +110,7 @@ namespace Bowling_Score_API.Models
 
                 }
             }
+
         }
     }
 }
