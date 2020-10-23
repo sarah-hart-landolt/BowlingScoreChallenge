@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.TagHelpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Threading.Tasks;
+
 
 namespace Bowling_Score_API.Models
 {
@@ -11,6 +8,8 @@ namespace Bowling_Score_API.Models
     {
         public int Id { get; set; }
         public List<Player> Players { get; set; } = new List<Player>();
+
+        // method injection
         public void addPlayer(Player player)
         {
             if (Players.Count < 5)
@@ -25,13 +24,9 @@ namespace Bowling_Score_API.Models
             }
         }
 
-        public void PlayGame()
-        {
-            foreach (var player in Players)
-            {
-                player.PlayerRoll();
-            }
-        }
+
+        // game factory -- new up player, frames and a game 
+ 
 
         public void GameScore()
         {
