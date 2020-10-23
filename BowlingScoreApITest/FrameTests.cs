@@ -11,16 +11,11 @@ namespace BowlingScoreApITest
         {
 
             //arrange 
-            var frame = new Frame();
+            var frame = new Frame(1, 10,0);
             //act 
-            if (frame.FirstRoll == 10)
-            {
+          
                 Assert.True(frame.IsAStrike());
 
-            } else
-            {
-                Assert.False(frame.IsASpare());
-            }
             //assert
         }
 
@@ -29,17 +24,12 @@ namespace BowlingScoreApITest
         {
 
             //arrange 
-            var frame = new Frame();
+            var frame = new Frame(2, 8, 2);
             //assert
-            if (frame.FirstRoll != 10 && frame.total == 10)
-            {
+            
                 Assert.True(frame.IsASpare());
 
-            }
-            else
-            {
-                Assert.False(frame.IsASpare());
-            }
+           
 
         }
     }

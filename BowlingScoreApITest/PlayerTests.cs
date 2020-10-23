@@ -12,10 +12,8 @@ namespace BowlingScoreApITest
         {
 
             //arrange 
-            var player = new Player();
             //act 
-            player.PlayerRoll();
-            player.BowlingCardScore();
+         
             //assert
         }
 

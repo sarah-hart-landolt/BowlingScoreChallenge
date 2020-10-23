@@ -10,14 +10,19 @@ namespace Bowling_Score_API.Models
         public Game BuildGameFactory()
         { 
             var game =  new Game();
-            var randomPlayer = new PlayerFactory();
+            var playerFactory = new PlayerFactory();
 
 
-            for (int i = 0; i < rnd.Next(1, 5); i++)
+            for (int i = 0; i < rnd.Next(1, 6); i++)
             {
 
-                var player1 = randomPlayer.RandomPlayer();
-                    game.addPlayer(player1);
+                var randomPlayer = playerFactory.RandomPlayer();
+               
+                    game.addPlayer(randomPlayer);
+                // remove player's name from list to avoid duplicates of random generator 
+                    playerFactory.players.Remove(randomPlayer.DisplayName);
+
+
 
             }
 
@@ -30,13 +35,9 @@ namespace Bowling_Score_API.Models
                 for (int i = 0; i < 11; i++)
                 {
                     var frame = FrameFactory.RandomFrame();
-                    //var frame2 = FrameFactory.RandomFrame();
 
                     player.PlayerRoll(frame);
-                    //if(i == 9 && frame.IsAStrike())
-                    //{
-                    //    player.PlayerRoll(frame2);
-                    //}
+               
                 }
             }
 
