@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Org.BouncyCastle.Asn1.Sec;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,8 +64,23 @@ namespace Bowling_Score_API.Models
         public Frame(int id, int firstRoll, int secondRoll)
         {
             Id = id;
-            FirstRoll = firstRoll;
-            SecondRoll = secondRoll;
+            if (firstRoll >= 0  && firstRoll <=10)
+            {
+                FirstRoll = firstRoll;
+
+            } else
+            {
+                Console.WriteLine("Please pick a number between 0-10");
+            }
+            if (secondRoll >= 0 && secondRoll <= 10-firstRoll)
+            {
+                SecondRoll = secondRoll;
+
+            }
+            else
+            {
+                Console.WriteLine($"Please pick a number between 0 & {10-firstRoll}");
+            }
 
         }
     }
